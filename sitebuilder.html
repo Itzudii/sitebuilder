@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Create</title>
+    <script src="script/sitebuilder.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/sitebuilder.css">
+</head>
+<style>
+    .parent:hover {
+        color: red;
+        width: 100px;
+    }
+</style>
+<body>
+    <div id="board" class="board">
+        <div class="board-nav">
+
+            <div class="board-nav-div">
+                <li class="board-nav-div-button" id="board-nav-menu">O</li>
+                <li class="board-nav-div-button" id="board-nav-add">Add</li>
+                <li class="board-nav-div-button" id="board-nav-hover">Hover</li>
+                <li class="board-nav-div-button" id="board-nav-Single">Single</li>
+                <li class="board-nav-div-button" id="board-nav-guide">Guide
+                    <div class="board-nav-div-button-guide">
+                        <!-- <br> -->
+                        1. for text editing click <kbd>cltr + b</kbd>.
+                        <br>
+                        2. for preview click <kbd>cltr + q</kbd>.
+                        <p style="color: red;">click again for deactivate modes</p>
+                    </div>
+                </li>
+            </div>
+            <div class="board-nav-div-button-menu">
+                <li id="board-nav-div-button-menu-home"><i class="fa fa-home"></i>Home</li>
+                <li id="board-nav-div-button-menu-save"><i class="fa fa-save"></i>Save</li>
+
+            </div>
+        </div>
+        <!--///////////////////////////////////ADD///////////////////////////1///////////////////////////////////////// -->
+
+        <div class="board-body">
+            <div class="board-body-div1" id="board-addbox">
+                <li class="board-body-div2-caption" id="board-body-status">ADD</li>
+                <select id="board-body-tag" name="tag"></select>
+                <input id="board-body-class" name="class" placeholder="enter class"></input>
+                <button id="board-body-add">ADD</button>
+                <button id="board-body-remove">DELETE</button>
+                <button id="board-body-exchange">EXCHANGE</button>
+                <button id="board-body-reset">RESET</button>
+
+            </div>
+            <!-- //////////////////////////size//////////////////////////////1///////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-sizebox">
+                <li class="board-body-div2-caption">SIZE</li>
+                <div class="board-body-div2-div">
+                    <li>Width</li>
+                    <input type="number" id="board-size-width-entry">
+                    <select id="board-size-width-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Height</li>
+                    <input type="number" id="board-size-height-entry">
+                    <select id="board-size-height-entry-unit">
+                    </select>
+                </div>
+            </div>
+            <!-- ///////////////////////////////border/////////////////////////1///////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-borderbox">
+                <li class="board-body-div2-caption">BORDER</li>
+                <div class="board-body-div2-div">
+                    <li>Left</li>
+                    <input type="number" id="board-border-left-entry">
+                    <select id="board-border-left-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li> Right</li>
+                    <input type="number" id="board-border-right-entry">
+                    <select id="board-border-right-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Bottom</li>
+                    <input type="number" id="board-border-bottom-entry">
+                    <select id="board-border-bottom-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Top</li>
+                    <input type="number" id="board-border-top-entry">
+                    <select id="board-border-top-entry-unit">
+                    </select>
+                </div>
+                <br>
+                <div class="board-body-div2-div">
+                    <li>Radius</li>
+                    <input type="number" id="board-border-borderradius-entry">
+                    <select id="board-border-borderradius-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Color</li>
+                    <input type="color" id="board-border-bordercolor-entry">
+                    <input type="range" name="" id="board-border-opticity-entry" min="0" max="1" step="0.01" value="1">
+                </div>
+
+
+                <div class="board-body-div2-div">
+                    <li>Style</li>
+                    <select id="board-border-borderstyle-entry">
+                        <option value="solid">solid</option>
+                        <option value="dashed">dashed</option>
+                        <option value="dashed">dotted</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Sizing</li>
+                    <select id="board-border-boxsizing-entry">
+                        <option value=""></option>
+                        <option value="inherit">inherit</option>
+                        <option value="border-box">border-box</option>
+                        <option value="content-box">content-box</option>
+                    </select>
+                </div>
+            </div>
+            <!-- ///////////////////////////////////padding ///////////////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-paddingbox">
+                <li class="board-body-div2-caption">PADDING</li>
+                <div class="board-body-div2-div">
+                    <li>Left</li>
+                    <input type="number" id="board-padding-left-entry">
+                    <select id="board-padding-left-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Right</li>
+                    <input type="number" id="board-padding-right-entry">
+                    <select id="board-padding-right-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Bottom</li>
+                    <input type="number" id="board-padding-bottom-entry">
+                    <select id="board-padding-bottom-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Top</li>
+                    <input type="number" id="board-padding-top-entry">
+                    <select id="board-padding-top-entry-unit">
+                    </select>
+                </div>
+            </div>
+
+            <!-- ///////////////////////////////////margin ///////////////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-marginbox">
+                <li class="board-body-div2-caption">MARGIN</li>
+                <div class="board-body-div2-div">
+                    <li>Left</li>
+                    <input type="number" id="board-margin-left-entry">
+                    <select id="board-margin-left-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Right</li>
+                    <input type="number" id="board-margin-right-entry">
+                    <select id="board-margin-right-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Bottom</li>
+                    <input type="number" id="board-margin-bottom-entry">
+                    <select id="board-margin-bottom-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Top</li>
+                    <input type="number" id="board-margin-top-entry">
+                    <select id="board-margin-top-entry-unit">
+                    </select>
+                </div>
+            </div>
+            <!-- ///////////////////////////////////position ///////////////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-positionbox">
+                <li class="board-body-div2-caption">POSITION</li>
+                <div class="board-body-div2-div">
+                    <li>Position</li>
+                    <select id="board-position-position-entry">
+                        <option value=""></option>
+                        <option value="none">none</option>
+                        <option value="absolute">absolute</option>
+                        <option value="relative">relative</option>
+                        <option value="static">static</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Left</li>
+                    <input type="number" id="board-position-left-entry">
+                    <select id="board-position-left-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Right</li>
+                    <input type="number" id="board-position-right-entry">
+                    <select id="board-position-right-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Bottom</li>
+                    <input type="number" id="board-position-bottom-entry">
+                    <select id="board-position-bottom-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Top</li>
+                    <input type="number" id="board-position-top-entry">
+                    <select id="board-position-top-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Z-index</li>
+                    <input type="number" id="board-position-zindex-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Float</li>
+                    <select id="board-position-float-entry">
+                        <option value=""></option>
+                        <option value="left">left</option>
+                        <option value="right">right</option>
+                        <option value="inline-end">inline-end</option>
+                        <option value="inline-start">inline-start</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Clear</li>
+                    <select id="board-position-clear-entry">
+                        <option value=""></option>
+                        <option value="left">left</option>
+                        <option value="right">right</option>
+                        <option value="both">both</option>
+                    </select>
+                </div>
+            </div>
+            <!-- ///////////////////////////////////display///////////////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-displaybox">
+                <li class="board-body-div2-caption">DISPLAY</li>
+                <div class="board-body-div2-div">
+                    <li>Display</li>
+                    <!-- <input type="text"   id="board-padding-left-entry"  > -->
+                    <select id="board-display-display-entry">
+                        <option value=""></option>
+                        <option value="block">block</option>
+                        <option value="inline-block">inline-block</option>
+                        <option value="flex">flex</option>
+                        <option value="inline-flex">inline flex</option>
+                        <option value="grid">grid</option>
+                        <option value="none">none</option>
+                        <!-- <option value="px">static</option> -->
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>grid-gap</li>
+                    <input type="text" id="board-display-gridgap-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>grid-template-columns</li>
+                    <input type="text" id="board-display-gridtemplatecolumns-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>grid-template-row</li>
+                    <input type="text" id="board-display-gridtemplaterows-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>flex</li>
+                    <input type="text" id="board-display-flex-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>flex direction</li>
+                    <li></li>
+                    <select id="board-display-flexdirection-entry">
+                        <option value=""></option>
+                        <option value="row">row</option>
+                        <option value="column">column</option>
+                        <option value="row-reverse">row-reverse</option>
+                        <option value="column-reverser">column-reverser</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>flex warp</li>
+                    <li></li>
+                    <select id="board-display-flexwrap-entry">
+                        <option value=""></option>
+                        <option value="nowarp">nowarp</option>
+                        <option value="warp">wrap</option>
+
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>align-content</li>
+                    <li>(vertical-text)</li>
+                    <select id="board-display-aligncontent-entry">
+                        <option value=""></option>
+                        <option value="normal">normal</option>
+                        <option value="stretch">stretch</option>
+                        <option value="flex-start">flex-start</option>
+                        <option value="center">center</option>
+                        <option value="flex-end">flex-end</option>
+                        <option value="space-between">space-between</option>
+                        <option value="space-around">space-around</option>
+                        <option value="space-evenly">space-evenly</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>align-items</li>
+                    <li>(vertical)</li>
+                    <select id="board-display-alignitems-entry">
+                        <option value=""></option>
+                        <option value="normal">normal</option>
+                        <option value="stretch">stretch</option>
+                        <option value="flex-start">flex-start</option>
+                        <option value="center">center</option>
+                        <option value="flex-end">flex-end</option>
+                        <option value="space-between">space-between</option>
+                        <option value="space-around">space-around</option>
+                        <option value="space-evenly">space-evenly</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>justify-content</li>
+                    <li>(horizontal)</li>
+                    <select id="board-display-justifycontent-entry">
+                        <option value=""></option>
+                        <option value="normal">normal</option>
+                        <option value="stretch">stretch</option>
+                        <option value="flex-start">flex-start</option>
+                        <option value="center">center</option>
+                        <option value="flex-end">flex-end</option>
+                        <option value="space-between">space-between</option>
+                        <option value="space-around">space-around</option>
+                        <option value="space-evenly">space-evenly</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>justify-content</li>
+                    <li></li>
+                    <select id="board-display-justifyitems-entry">
+                        <option value=""></option>
+                        <option value="normal">normal</option>
+                        <option value="stretch">stretch</option>
+                        <option value="flex-start">flex-start</option>
+                        <option value="center">center</option>
+                        <option value="flex-end">flex-end</option>
+                        <option value="space-between">space-between</option>
+                        <option value="space-around">space-around</option>
+                        <option value="space-evenly">space-evenly</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <!-- ///////////////////////////////////Text///////////////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-textbox">
+                <li class="board-body-div2-caption">TEXT</li>
+                <div class="board-body-div2-div">
+                    <li>text</li>
+                    <textarea name="" id="board-text-text-entry" style="width: 10vw;height: 100px;"></textarea>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Color</li>
+                    <input type="color" name="" id="board-text-textcolor-entry">
+                    <input type="range" name="" id="board-text-textopticity-entry" min="0" max="1" step="0.01">
+                </div>
+
+                <div class="board-body-div2-div">
+                    <li>Alignment</li>
+                    <li></li>
+                    <select id="board-text-textalign-entry">
+                        <option value=""></option>
+                        <option value="left">left</option>
+                        <option value="center">center</option>
+                        <option value="right">right</option>
+                        <option value="justify">justify</option>
+                        <option value="end">end</option>
+                        <option value="start">start</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Underline</li>
+                    <li></li>
+                    <select id="board-text-textdecorationline-entry">
+                        <option value=""></option>
+                        <option value="none">none</option>
+                        <option value="overline">overline</option>
+                        <option value="underline">underline</option>
+                        <option value="line-through">line-through</option>
+
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Underline Color</li>
+                    <input type="color" name="" id="board-text-decorationcolor-entry">
+                    <input type="range" name="" id="board-text-decorationopticity-entry" min="0" max="1" step="0.01" value="0">
+                </div>
+
+                <div class="board-body-div2-div">
+                    <li>Underline Style</li>
+                    <select id="board-text-textdecorationstyle-entry">
+                        <option value=""></option>
+                        <option value="solid">solid</option>
+                        <option value="wavy">wavy</option>
+                        <option value="dashed">dashed</option>
+                        <option value="dotted">dotted</option>
+                        <option value="double">double</option>
+
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Underline Thickness</li>
+                    <input type="number" id="board-text-textdecorationthickness-entry">
+                    <select id="board-text-textdecorationthickness-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Transform</li>
+                    <select id="board-text-texttransform-entry">
+                        <option value=""></option>
+                        <option value="none">none</option>
+                        <option value="uppercase">uppercase</option>
+                        <option value="capitalize">capitalize</option>
+                        <option value="lowercase">lowercase</option>
+
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Wrap</li>
+                    <select id="board-text-textwrap-entry">
+                        <option value=""></option>
+                        <option value="stable">stable</option>
+                        <option value="pretty">pretty</option>
+                        <option value="nowrap">nowrap</option>
+                        <option value="wrap">wrap</option>
+                        <option value="balance">balance</option>
+
+                    </select>
+                </div>
+
+            </div>
+            <!-- //////////////////////////font//////////////////////////////1///////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-fontbox">
+                <li class="board-body-div2-caption">FONT</li>
+                <!-- size -->
+                <div class="board-body-div2-div">
+                    <li>Size</li>
+                    <input type="number" id="board-font-size-entry">
+                    <select id="board-font-size-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Family</li>
+                    <input type="text" id="board-font-family-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Style</li>
+                    <select id="board-font-style-entry">
+                        <option value=""></option>
+                        <option value="oblique">oblique</option>
+                        <option value="italic">italic</option>
+                        <option value="normal">normal</option>
+                    </select>
+                </div>
+
+                <div class="board-body-div2-div">
+                    <li>Weight</li>
+                    <select id="board-font-weight-entry">
+                        <option value=""></option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="300">300</option>
+                        <option value="400">400</option>
+                        <option value="500">500</option>
+                        <option value="600">600</option>
+                        <option value="700">700</option>
+                        <option value="800">800</option>
+                        <option value="900">900</option>
+                        <option value="bold">bold</option>
+                        <option value="bolder">bolder</option>
+                        <option value="lighter">lighter</option>
+                        <option value="normal">normal</option>
+                    </select>
+                </div>
+
+                <div class="board-body-div2-div">
+                    <li>line height</li>
+                    <input type="number" id="board-font-lineheight-entry">
+                    <select id="board-font-lineheight-entry-unit">
+                    </select>
+                </div>
+
+            </div>
+            <!-- ///////////////////////////////table/////////////////////////1///////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-tablebox" style="display: none;">
+                <li class="board-body-div2-caption">TABLE</li>
+                <div class="board-body-div2-div">
+                    <li>add rows</li>
+                    <button type="text" id="board-table-addrows-entry">add row</button>
+                    <button type="text" id="board-table-addcolumn-entry">add column</button>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>remove rows</li>
+                    <button type="text" id="board-table-removerows-entry">remove row</button>
+                    <button type="text" id="board-table-removecolumn-entry">remove column</button>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>border collapse</li>
+                    <select id="board-table-bordercollapse-entry">
+                        <option value="separate">separate</option>
+                        <option value="collapse">collapse</option>
+                    </select>
+                </div>
+
+                <div class="board-body-div2-div">
+                    <li>table padding</li>
+                    <input type="text" id="board-table-padding-entry">
+                    <select id="board-table-padding-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>table text align</li>
+                    <li></li>
+                    <select id="board-table-textalign-entry">
+                        <option value="left">left</option>
+                        <option value="center">center</option>
+                        <option value="right">right</option>
+                        <option value="justify">justify</option>
+                        <option value="end">end</option>
+                        <option value="start">start</option>
+                    </select>
+                </div>
+
+                <div class="board-body-div2-div">
+                    <li>table border</li>
+                    <input type="text" id="board-table-border-entry" placeholder="size style color">
+
+                </div>
+                <div class="board-body-div2-div">
+                    <li>table head </li>
+                    <input type="color" id="board-table-headbackground-entry">
+                    <input type="color" id="board-table-headcolor-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>table even rows </li>
+                    <input type="color" id="board-table-evenbackground-entry">
+                    <input type="color" id="board-table-evencolor-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>table odd rows</li>
+                    <input type="color" id="board-table-oddbackground-entry">
+                    <input type="color" id="board-table-oddcolor-entry">
+                </div>
+
+
+            </div>
+            <!-- //////////////////////////background//////////////////////////////1///////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-backgroundbox">
+                <li class="board-body-div2-caption">BACKGROUND </li>
+                <div class="board-body-div2-div">
+                    <li>Color</li>
+                    <input type="color" name="" id="board-background-backgroundcolor-entry">
+                    <input type="range" name="" id="board-background-backgroundopticity-entry" min="0" max="1"
+                        step="0.01">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>img</li>
+                    <input type="text" id="board-background-backgroundimg-entry" placeholder="lcolor or url(link)">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Size </li>
+                    <input type="text" id="board-background-size-entry" placeholder="width+unit height+unit">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Position </li>
+                    <input type="text" id="board-background-position-entry" placeholder=" x+unit y+unit">
+                </div>
+                <!-- size -->
+                <div class="board-body-div2-div">
+                    <li>Repeat</li>
+                    <select id="board-background-repeat-entry">
+                        <option value=""></option>
+                        <option value="none">none</option>
+                        <option value="repeat">repeat</option>
+                        <option value="space">space</option>
+                        <option value="round">round</option>
+                        <option value="repeat-y">repeat-y</option>
+                        <option value="repeat-x">repeat-x</option>
+                        <option value="no-repeat">no-repeat</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>BG Blendmode (optional)</li>
+                    <select id="board-background-blendmode-entry">
+                        <option value=""></option>
+                        <option value="none">none</option>
+                        <option value="color">color</option>
+                        <option value="color-burn">color burn</option>
+                        <option value="color-dodge">color dodge</option>
+                        <option value="darken">darken</option>
+                        <option value="difference">difference</option>
+                        <option value="exclusion">exclusion</option>
+                        <option value="hard-light">hardlight</option>
+                        <option value="hue">hue</option>
+                        <option value="lighten">lighten</option>
+                        <option value="luminosity">luminosity</option>
+                        <option value="multiply">multiply</option>
+                        <option value="normal">normal</option>
+                        <option value="overlay">overlay</option>
+                        <option value="saturation">saturation</option>
+                        <option value="screen">screen</option>
+                        <option value="soft-light">softlight</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>mix blendmode (optional)</li>
+                    <select id="board-background-mixblendmode-entry">
+                        <option value=""></option>
+                        <option value="none">none</option>
+                        <option value="color">color</option>
+                        <option value="color-burn">color burn</option>
+                        <option value="color-dodge">color dodge</option>
+                        <option value="darken">darken</option>
+                        <option value="difference">difference</option>
+                        <option value="exclusion">exclusion</option>
+                        <option value="hard-light">hardlight</option>
+                        <option value="hue">hue</option>
+                        <option value="lighten">lighten</option>
+                        <option value="luminosity">luminosity</option>
+                        <option value="multiply">multiply</option>
+                        <option value="normal">normal</option>
+                        <option value="overlay">overlay</option>
+                        <option value="saturation">saturation</option>
+                        <option value="screen">screen</option>
+                        <option value="soft-light">softlight</option>
+                    </select>
+                </div>
+
+            </div>
+            <!-- //////////////////////////list//////////////////////////////1///////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-listbox">
+                <li class="board-body-div2-caption">LIST</li>
+                <div class="board-body-div2-div">
+                    <li>listing type</li>
+                    <select id="board-list-styletype-entry">
+                        <option value=""></option>
+                        <option value="armenian">armenian</option>
+                        <option value="circle">circle</option>
+                        <option value="decimal">decimal</option>
+                        <option value="decimal-leading-zero">decimal-leading-zero</option>
+                        <option value="disc">disc</option>
+                        <option value="georgian">georgian</option>
+                        <option value="lower-alpha">lower-alpha</option>
+                        <option value="lower-greek">lower-greek</option>
+                        <option value="lower-latin">lower-latin</option>
+                        <option value="lower-roman">lower-roman</option>
+                        <option value="none">none</option>
+                        <option value="square">square</option>
+                        <option value="upper-alpha">upper-alpha</option>
+                        <option value="upper-latin">upper-latin</option>
+                        <option value="upper-roman">upper-roman</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>listing position</li>
+                    <select id="board-list-styleposition-entry">
+                        <option value=""></option>
+                        <option value="inside">inside</option>
+                        <option value="outside">outside</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>list style image</li>
+                    <input type="text" id="board-list-styleimg-entry" placeholder="url of image">
+                </div>
+
+
+            </div>
+            <!-- //////////////////////////input//////////////////////////////1///////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-inputbox">
+                <li class="board-body-div2-caption">INPUT</li>
+                <div class="board-body-div2-div">
+                    <li>Type</li>
+                    <select id="board-input-type-entry">
+                        <option value="button">button</option>
+                        <option value="checkbox">checkbox</option>
+                        <option value="color">color</option>
+                        <option value="date">date</option>
+                        <option value="datetime">datetime</option>
+                        <option value="datetime-local">datetime-local</option>
+                        <option value="email">email</option>
+                        <option value="file">file</option>
+                        <option value="hidden">hidden</option>
+                        <option value="image">image</option>
+                        <option value="month">month</option>
+                        <option value="number">number</option>
+                        <option value="password">password</option>
+                        <option value="radio">radio</option>
+                        <option value="range">range</option>
+                        <option value="reset">reset</option>
+                        <option value="search">search</option>
+                        <option value="submit">submit</option>
+                        <option value="tel">tel</option>
+                        <option value="text">text</option>
+                        <option value="time">time</option>
+                        <option value="url">url</option>
+                        <option value="week">week</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Placeholder</li>
+                    <input type="text" id="board-input-placeholder-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Min</li>
+                    <input type="text" id="board-input-min-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Max</li>
+                    <input type="text" id="board-input-max-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Step</li>
+                    <input type="text" id="board-input-step-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Value</li>
+                    <input type="text" id="board-input-value-entry">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Link</li>
+                    <input type="text" id="board-input-link-entry" placeholder="for hyperlink">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>For</li>
+                    <input type="text" id="board-input-for-entry" placeholder="for lis">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Source</li>
+                    <input type="text" id="board-input-src-entry" placeholder=" for imagelink">
+                </div>
+
+
+            </div>
+            <!-- //////////////////////////transform//////////////////////////////1///////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-transformbox">
+                <li class="board-body-div2-caption">TRANSFORM</li>
+                <!-- size -->
+                <div class="board-body-div2-div">
+                    <li>translateX</li>
+                    <input type="number" id="board-transform-translateX-entry">
+                    <select id="board-transform-translateX-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>translateY</li>
+                    <input type="number" id="board-transform-translateY-entry">
+                    <select id="board-transform-translateY-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>translateZ</li>
+                    <input type="number" id="board-transform-translateZ-entry">
+                    <select id="board-transform-translateZ-entry-unit">
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>scaleX</li>
+                    <input type="range" id="board-transform-scaleX-entry" min="0" max="10" step="0.01">
+                    <p></p>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>scaleY</li>
+                    <input type="range" id="board-transform-scaleY-entry" min="0" max="10" step="0.01">
+                    <p></p>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>scaleZ</li>
+                    <input type="range" id="board-transform-scaleZ-entry" min="0" max="10" step="0.01">
+                    <p></p>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>rotateX</li>
+                    <input type="range" id="board-transform-rotateX-entry" min="0" max="360" step="1">
+                    <p></p>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>rotateY</li>
+                    <input type="range" id="board-transform-rotateY-entry" min="0" max="360" step="1">
+                    <p></p>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>rotateY</li>
+                    <input type="range" id="board-transform-rotateZ-entry" min="0" max="360" step="1">
+                    <p></p>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>skewX</li>
+                    <input type="range" id="board-transform-skewX-entry" min="0" max="360" step="1">
+                    <p></p>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>skewY</li>
+                    <input type="range" id="board-transform-skewY-entry" min="0" max="360" step="1">
+                    <p></p>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>perpectual</li>
+                    <input type="text" id="board-transform-perspective-entry">
+                    <!-- <p></p> -->
+                </div>
+
+            </div>
+            <!-- //////////////////////////transition//////////////////////////////1///////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-transitionbox">
+                <li class="board-body-div2-caption">TRANSITION</li>
+                <div class="board-body-div2-div">
+                    <li>transition duration</li>
+                    <input type="text" id="board-transition-duration-entry" placeholder="seconds as s">
+                </div>
+                <div class="board-body-div2-div">
+                    <li>transition property</li>
+                    <select id="board-transition-property-entry">
+                        <option value=""></option>
+                        <option value="all">all</option>
+                        <option value="none">none</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>transition timing style</li>
+                    <select id="board-transition-timingfunction-entry">
+                        <option value=""></option>
+                        <option value="linear">linear</option>
+                        <option value="step-end">step-end</option>
+                        <option value="step-start">step-start</option>
+                        <option value="ease">ease</option>
+                        <option value="ease-in">ease-in</option>
+                        <option value="ease-out">ease-out</option>
+                        <option value="ease-in-out">ease-in-out</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Cursor</li>
+                    <select id="board-transition-cursor-entry">
+                        <option value=""></option>
+                        <option value="alias">alias</option>
+                        <option value="none">none</option>
+                        <option value="crosshair">crosshair</option>
+                        <option value="default">default</option>
+                        <option value="grab">grab</option>
+                        <option value="grabbing">grabbing</option>
+                        <option value="help">help</option>
+                        <option value="move">move</option>
+                        <option value="pointer">pointer</option>
+                        <option value="progress">progress</option>
+                        <option value="text">text</option>
+                        <option value="wait">wait</option>
+                        <option value="col-resize">col-resize</option>
+                        <option value="row-resize">row-resize</option>
+                        <option value="e-resize">e-resize</option>
+                        <option value="n-resize">n-resize</option>
+                        <option value="nw-resize">nw-resize</option>
+                        <option value="ns-resize">ns-resize</option>
+                        <option value="vertical-text">vertical-text</option>
+                        <option value="not-allowed">not-allowed</option>
+                        <option value="zoom-in">zoom-in</option>
+                        <option value="zoom-out">zoom-out</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Visibility</li>
+                    <select id="board-transition-visibility-entry">
+                        <option value=""></option>
+                        <option value="visible">visible</option>
+                        <option value="collapse">collapse</option>
+                        <option value="hidden">hidden</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Overflow x</li>
+                    <select id="board-transition-overflowx-entry">
+                        <option value=""></option>
+                        <option value="auto">auto</option>
+                        <option value="hidden">hidden</option>
+                        <option value="scroll">scroll</option>
+                        <option value="visible">visible</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Overflow y</li>
+                    <select id="board-transition-overflowy-entry">
+                        <option value=""></option>
+                        <option value="auto">auto</option>
+                        <option value="hidden">hidden</option>
+                        <option value="scroll">scroll</option>
+                        <option value="visible">visible</option>
+                    </select>
+                </div>
+                <div class="board-body-div2-div" style=" grid-template-columns: 5vw 10vw;">
+                    <li>clip path</li>
+                    <input type="text" id="board-transition-clippath-entry">
+                </div>
+
+
+            </div>
+            <!-- //////////////////////////box shadow//////////////////////////////1///////////////////////////////////////// -->
+            <div class="board-body-div2" id="board-boxshadowbox">
+                <li class="board-body-div2-caption">Box Shadow</li>
+                <div class="board-body-div2-div">
+                    <li>X</li>
+                    <input type="range" id="board-boxshadow-x-entry" min="-200" max="200" step="1">
+                    <li id="board-boxshadow-x-entry-display">d</li>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Y</li>
+                    <input type="range" id="board-boxshadow-y-entry" min="-200" max="200" step="1">
+                    <li id="board-boxshadow-y-entry-display"></li>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Blur</li>
+                    <input type="range" id="board-boxshadow-blur-entry" min="0" max="300" step="1">
+                    <li id="board-boxshadow-blur-entry-display"></li>
+                </div>
+                <div class="board-body-div2-div">
+                    <li>Spread</li>
+                    <input type="range" id="board-boxshadow-spread-entry" min="-200" max="200" step="1">
+                    <li id="board-boxshadow-spread-entry-display"></li>
+                </div>
+
+                <div class="board-body-div2-div">
+                    <li>Shadow color</li>
+                    <input type="color" id="board-boxshadow-shadowcolor-entry">
+                    <input type="range" id="board-boxshadow-shadowopticity-entry" min="0" max="1" step="0.01">
+                </div>
+
+                <!-- <div class="board-body-div2-div">
+                    <li>BG inset</li>
+                    <select id="board-transition-inset-entry">
+                        <option value="auto">inset</option>
+                        <option value="">outline</option>
+                    </select>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div id="body" class="webpage" style="width: 100%;cursor: pointer;">
+
+</body>
+</html>
