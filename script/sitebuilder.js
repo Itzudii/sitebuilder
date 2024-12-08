@@ -16,7 +16,12 @@ class Website {
         this.stylenum = 2;
         this.styleSheet = document.styleSheets[this.stylenum];
         this.rules = this.styleSheet.cssRules;
-
+// loader
+        this.loader = document.querySelector("#board-body-loader");
+        setTimeout(() => {
+            
+            this.loader.style.display = "none";
+        }, 1000);
         // four upper btns
         this.bodystatusdisplay = document.querySelector("#board-body-status");
 
@@ -322,37 +327,7 @@ class Website {
             this.targetT.style.backgroundColor = this.targetB;
         })
 
-        this.bodysavebtn.addEventListener("click", () => {
-
-
-
-            let content = document.createElement('p');
-            let html = document.createElement('html');
-            html.lang = "en";
-            let head = document.createElement('head');
-            head.innerHTML = `<meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>`;
-            let style = document.querySelectorAll("style");
-            let styletemp = document.createElement("style");
-            styletemp.innerHTML = style[0].innerHTML;
-            head.appendChild(styletemp);
-            let body = document.createElement('body');
-            body.innerHTML = this.clickbody.innerHTML;
-            html.appendChild(head);
-            html.appendChild(body);
-            content.appendChild(html);
-
-            let temp = document.createElement('p');
-            temp.innerText = content.innerHTML;
-
-            var newWindow = window.open('', '_blank');
-
-            newWindow.document.write(temp.innerHTML);
-
-            newWindow.document.close();
-
-        });
+        this.bodysavebtn.addEventListener("click", () => this.downloadpage());
         this.bodyhomebtn.addEventListener("click", () => {
             window.location.href = "index.html";
         })
@@ -361,6 +336,41 @@ class Website {
         this.tagadder([this.tag]);
         this.unitadder([this.widthunit, this.heightunit, this.borderleftunit, this.borderrightunit, this.borderbottomunit, this.bordertopunit, this.borderradiusunit, this.paddingleftunit, this.paddingrightunit, this.paddingbottomunit, this.paddingtopunit, this.marginleftunit, this.marginrightunit, this.marginbottomunit, this.margintopunit, this.positionleftunit, this.positionrightunit, this.positionbottomunit, this.positiontopunit, this.textdecorationTunit, this.table_paddingunit, this.fontsizeunit, this.fontlineheightunit, this.transformTXunit, this.transformTYunit, this.transformTZunit]);
 
+    }
+    downloadpage(){
+        let content = document.createElement('p');
+        let html = document.createElement('html');
+        html.lang = "en";
+        let head = document.createElement('head');
+        head.innerHTML = `<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>`;
+        let style = document.querySelectorAll("style");
+        let styletemp = document.createElement("style");
+        styletemp.innerHTML = style[0].innerHTML;
+        head.appendChild(styletemp);
+        let body = document.createElement('body');
+        body.innerHTML = this.clickbody.innerHTML;
+        body.className = "webpage";
+        html.appendChild(head);
+        html.appendChild(body);
+        content.appendChild(html);
+
+        // let temp = document.createElement('p');
+        // temp.innerText = content.innerHTML;
+
+        // var newWindow = window.open('', '_blank');
+
+        // newWindow.document.write(content.innerHTML);
+
+        // newWindow.document.close();
+        var blob = new Blob([content.innerHTML], {type: 'text/html'});
+        
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'sitebuilder-downloadpage.html';
+        
+        link.click();
     }
 
     // add and remove and exchange function///////////////////////////////////////////////////////////
@@ -418,7 +428,6 @@ class Website {
 
         if (this.targetT != event.target && this.targetT != null) {
             this.targetT.style.backgroundColor = this.targetB;
-            // this.targetT.style.cursor = "";
             this.targetB = event.target.style.backgroundColor;
             this.targetT = event.target;
         }
@@ -426,7 +435,6 @@ class Website {
             this.targetT = event.target;
         }
         event.target.style.backgroundColor = '#ff000010';
-        // event.target.style.cursor = 'pointer';
         if (this.clickbody.style.position == "absolute") {
             this.clickbody.style.position = "relative";
             alert("main body is not convert into absolute!Error");
@@ -1163,7 +1171,6 @@ class Website {
 document.addEventListener("DOMContentLoaded", () => {
     // ========================start writing content form below\/========================================
     const board = document.querySelector('#board');
-    // const body = document.querySelector('#body');
     const website = new Website();
 
     // =====================class call /\=========================================================
@@ -1216,4 +1223,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ======================================end/\=========================================================
+// };
 });

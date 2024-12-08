@@ -8,11 +8,19 @@
     --maxwidth: 80vw;
 
 }
+@font-face {
+    font-family: 'YourFont'; /* Define the name for your custom font */
+    src: url('../hey_comic/Hey\ Comic.ttf') format('truetype');
+         /* url('/assets/fonts/YourFont.woff') format('woff'), */
+         /* url('/assets/fonts/YourFont.ttf') format('truetype'); Include different formats for compatibility */
+    font-weight: normal;
+    font-style: normal;
+}
 body{
     background-color: var(--light);
     padding: 0;
     margin: 0;
-
+    /* font-family:YourFont; */
 }
 header{
     width: 100%;
