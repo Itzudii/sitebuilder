@@ -1210,11 +1210,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+  let body = document.querySelector("body");
+
     document.addEventListener("keydown", (event) => {
         if (event.ctrlKey && event.key == "q") {
             if (board.style.display != "none") {
+                body.style.gridTemplateColumns = "auto";
                 board.style.display = "none";
             } else {
+                body.style.gridTemplateColumns = "20vw 80vw";
                 board.style.display = "block";
             }
         }
