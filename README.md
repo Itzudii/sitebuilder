@@ -59,19 +59,4 @@ Yes! Our platform offers integrated e-commerce tools to create an online store, 
 5. Can I change the template after starting my website?
 Yes, you can change templates at any time. Your content will remain intact as you switch between different styles and layouts.
 
-Pricing
-We offer flexible pricing plans:
-
-Free Plan: Limited templates and features, suitable for personal or small projects.
-Pro Plan: Access to all templates, premium support, custom domain, and additional features.
-Business Plan: Includes advanced SEO tools, analytics, e-commerce capabilities, and more.
-Visit our pricing page on the website for more details.
-
-Contact Us
-Have questions or need support? Get in touch with our team:
-
-Email: support@websitebuilder.com
-Phone: 1-800-123-4567
-Live Chat: Available on our website
-Conclusion
-With Website Builder, you can create a beautiful and functional website without the need for any technical knowledge. Whether you want to build a personal blog, a professional business website, or an online store, our platform has everything you need to get started.
+url:- https://sitebuilder-x.vercel.app/
